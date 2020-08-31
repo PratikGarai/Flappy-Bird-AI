@@ -15,7 +15,7 @@ class Base:
     def __init__(self, y):
         self.y = y
         self.x1 = 0
-        self.x2 = width
+        self.x2 = self.WIDTH
 
     def move(self):
         self.x1 -= self.VEL
