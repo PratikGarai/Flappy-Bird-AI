@@ -26,6 +26,7 @@ def main():
     pipes = [Pipe.Pipe(700)]
     win = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     clock = pygame.time.Clock()
+    score = 0
 
     run = True
     while run :
@@ -47,10 +48,10 @@ def main():
             pipe.move()
         if add_pipe :
             score += 1
-            pipes.append(Pipe.Pipe(730))
+            pipes.append(Pipe.Pipe(600))
 
         for r in rem :
-            pipe.remove(r)
+            pipes.remove(r)
 
         base.move()
         draw_window(win, bird, pipes, base)
