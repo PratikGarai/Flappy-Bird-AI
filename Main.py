@@ -11,11 +11,18 @@ import Terrain
 WINDOW_WIDTH = 500
 WINDOW_HEIGHT = 800
 
-def draw_window(win, bird, pipes, base):
+pygame.font.init()
+STAT_FONT = pygame.font.SysFont("comicsans",50)
+
+def draw_window(win, bird, pipes, base, score):
     win.blit(Terrain.BG_IMG, (0,0))
 
     for pipe in pipes :
         pipe.draw(win)
+    
+    text = STAT_FONT.render("Score: "+str(score),1,(255,255,255))
+    win.blit(text, (WINDOW_WIDTH-10-text.get_width(),10))
+
     base.draw(win)
     bird.draw(win)
     pygame.display.update()
@@ -53,8 +60,11 @@ def main():
         for r in rem :
             pipes.remove(r)
 
+        if bird.y + bird.img.get_height() >= 730 :
+            pass
+
         base.move()
-        draw_window(win, bird, pipes, base)
+        draw_window(win, bird, pipes, base, score)
 
     pygame.quit()
     quit()
