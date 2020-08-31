@@ -9,7 +9,7 @@ BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("images","bg.pn
 
 class Base:
     
-    VEL = 5
+    VEL = 8
     WIDTH = BASE_IMG.get_width()
 
     def __init__(self, y):
